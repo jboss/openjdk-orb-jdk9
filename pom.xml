@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>org.jboss.openjdk-orb</groupId>
-    <artifactId>openjdk-orb-jdk9</artifactId>
+    <artifactId>openjdk-orb-jdk9-supplement</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>JBoss repackaging of the OpenJDK9 ORB additions</description>

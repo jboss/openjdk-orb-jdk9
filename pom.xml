@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>23</version>
+    </parent>
+
+    <groupId>org.jboss.openjdk-orb</groupId>
+    <artifactId>openjdk-orb-jdk9</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <description>JBoss repackaging of the OpenJDK9 ORB additions</description>
+
+    <name>OpenJDK ORB</name>
+
+    <licenses>
+        <license>
+            <name>gpl</name>
+            <url>http://openjdk.java.net/legal/gplv2+ce.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/jboss/openjdk-orb-jdk9.git</connection>
+        <developerConnection>scm:git:https://github.com/jboss/openjdk-orb-jdk9.git</developerConnection>
+        <url>https://github.com/jboss/openjdk-orb-jdk9</url>
+    </scm>
+
+    <properties>
+        <maven.compiler.target>9</maven.compiler.target>
+        <maven.compiler.source>9</maven.compiler.source>
+    </properties>
+
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>--add-modules=java.corba,jdk.unsupported</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.util=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.spi.logging=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.logging=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.org.omg.CORBA=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.org.omg.SendingContext=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.org.omg.CORBA.ValueDefPackage=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.spi.orb=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.encoding=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.spi.transport=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.encoding=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.spi.protocol=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.corba=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.pept.protocol=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.spi.ior.iiop=ALL-UNNAMED</arg>
+                        <arg>--add-exports=java.corba/com.sun.corba.se.impl.protocol.giopmsgheaders=ALL-UNNAMED</arg>
+                    </compilerArgs>
+                    
+                </configuration>
+            </plugin>
+
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>

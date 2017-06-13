@@ -98,10 +98,10 @@ public class ValueUtility {
             public ValueHandlerImpl newValueHandlerImpl() {
                 return ValueHandlerImpl.getInstance();
             }
+
             public Class<?> loadClass(String className) throws ClassNotFoundException {
-                if (Thread.currentThread().getContextClassLoader() != null) {
-                    return Thread.currentThread().getContextClassLoader().
-                        loadClass(className);
+                if (ValueUtility.class.getClassLoader() != null) {
+                    return ValueUtility.class.getClassLoader().loadClass(className);
                 } else {
                     return ClassLoader.getSystemClassLoader().loadClass(className);
                 }

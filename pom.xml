@@ -9,7 +9,7 @@
 
     <groupId>org.jboss.openjdk-orb</groupId>
     <artifactId>openjdk-orb-jdk9-supplement</artifactId>
-    <version>1.0.2.Final</version>
+    <version>1.0.3.Final-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>JBoss repackaging of the OpenJDK9 ORB additions</description>
 
@@ -27,7 +27,7 @@
         <connection>scm:git:https://github.com/jboss/openjdk-orb-jdk9.git</connection>
         <developerConnection>scm:git:https://github.com/jboss/openjdk-orb-jdk9.git</developerConnection>
         <url>https://github.com/jboss/openjdk-orb-jdk9</url>
-      <tag>openjdk-orb-jdk9-supplement-1.0.2.Final</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>

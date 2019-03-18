@@ -309,6 +309,13 @@ public final class Bridge
     }
 
     /**
+     +     * Returns the location of a given static field.
+     +     */
+    public final Object staticFieldBase(Field f) {
+        return unsafe.staticFieldBase(f);
+    }
+
+    /**
      * Ensure that the class has been initalized.
      * @param cl the class to ensure is initialized
      */

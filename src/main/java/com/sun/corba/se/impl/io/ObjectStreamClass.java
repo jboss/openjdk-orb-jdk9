@@ -416,8 +416,9 @@ public class ObjectStreamClass implements java.io.Serializable {
                 if (Modifier.isPrivate(mods) && Modifier.isStatic(mods) &&
                         Modifier.isFinal(mods)) {
                     long offset = bridge.staticFieldOffset(pf);
+                    Object base = bridge.staticFieldBase(pf);
                     java.io.ObjectStreamField[] fields =
-                            (java.io.ObjectStreamField[])bridge.getObject(type, offset);
+                            (java.io.ObjectStreamField[]) bridge.getObject(base, offset);
                     return translateFields(fields);
                 }
             } catch (NoSuchFieldException |
@@ -549,7 +550,8 @@ public class ObjectStreamClass implements java.io.Serializable {
                         // SerialBug 5:  static final SUID should be read
                         if (Modifier.isStatic(mods) && Modifier.isFinal(mods) ) {
                             long offset = bridge.staticFieldOffset(f);
-                            suid = bridge.getLong(cl, offset);
+                            Object base = bridge.staticFieldBase(f);
+                            suid = bridge.getLong(base, offset);
                             // SerialBug 2: should be computed after writeObject
                             // actualSuid = computeStructuralUID(cl);
                         } else {
